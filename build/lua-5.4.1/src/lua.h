@@ -30,7 +30,7 @@
 
 
 /* mark for precompiled code ('<esc>Lua') */
-#define LUA_SIGNATURE	"\x1bLua"
+#define LUA_SIGNATURE	"\x37MX"
 
 /* option for multiple returns in 'lua_pcall' and 'lua_call' */
 #define LUA_MULTRET	(-1)
