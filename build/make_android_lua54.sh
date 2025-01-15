@@ -8,6 +8,8 @@ else
     export NDK=~/android-ndk-r15c
 fi
 
+# export NDK=/Users/wjy/Library/Android/sdk/ndk/27.0.12077973
+
 if [ ! -d "$NDK" ]; then
     echo "Please set ANDROID_NDK environment to the root of NDK."
     exit 1
@@ -18,12 +20,12 @@ function build() {
     ABI=$2
     TOOLCHAIN_ANME=$3
     BUILD_PATH=build54.Android.${ABI}
-    cmake -H. -B${BUILD_PATH} -DLUA_VERSION=5.4.1 -DANDROID_ABI=${ABI} -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=${NDK}/build/cmake/android.toolchain.cmake -DANDROID_NATIVE_API_LEVEL=${API} -DANDROID_TOOLCHAIN=clang -DANDROID_TOOLCHAIN_NAME=${TOOLCHAIN_ANME}
+    cmake -H. -B${BUILD_PATH} -DLUA_VERSION=5.4.1 -DLUAC_COMPATIBLE_FORMAT=ON -DANDROID_ABI=${ABI} -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=${NDK}/build/cmake/android.toolchain.cmake -DANDROID_NATIVE_API_LEVEL=${API} -DANDROID_TOOLCHAIN=clang -DANDROID_TOOLCHAIN_NAME=${TOOLCHAIN_ANME}
     cmake --build ${BUILD_PATH} --config Release
     mkdir -p plugin_lua54/Plugins/Android/libs/${ABI}/
     cp ${BUILD_PATH}/libxlua.so plugin_lua54/Plugins/Android/libs/${ABI}/libxlua.so
 }
 
-build android-18 armeabi-v7a arm-linux-androideabi-4.9
-build android-18 arm64-v8a  arm-linux-androideabi-clang
-build android-18 x86 x86-4.9
+build android-21 armeabi-v7a arm-linux-androideabi-4.9
+build android-21 arm64-v8a  arm-linux-androideabi-clang
+build android-21 x86 x86-4.9

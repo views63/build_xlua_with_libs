@@ -1,0 +1,4 @@
+.DS_Store
+/build/build*
+/build/luac/build_*
+/build/plugin_*

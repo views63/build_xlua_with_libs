@@ -18,6 +18,10 @@
 #include "lstate.h"
 #include "lundump.h"
 
+#if LUAC_COMPATIBLE_FORMAT
+#include <stdint.h>
+#endif
+
 
 typedef struct {
   lua_State *L;
@@ -89,7 +93,11 @@ static void dumpString (DumpState *D, const TString *s) {
   if (s == NULL)
     dumpSize(D, 0);
   else {
-    size_t size = tsslen(s);
+#if LUAC_COMPATIBLE_FORMAT
+    uint32_t size = tsslen(s);
+#else
+    size_t size = tsslen(s);  /* include trailing '\0' */
+#endif
     const char *str = getstr(s);
     dumpSize(D, size + 1);
     dumpVector(D, str, size);

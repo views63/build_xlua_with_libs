@@ -24,6 +24,9 @@
 #include "lundump.h"
 #include "lzio.h"
 
+#if LUAC_COMPATIBLE_FORMAT
+#include <stdint.h>
+#endif
 
 #if !defined(luai_verifycode)
 #define luai_verifycode(L,f)  /* empty */
@@ -110,7 +113,11 @@ static lua_Integer loadInteger (LoadState *S) {
 static TString *loadStringN (LoadState *S, Proto *p) {
   lua_State *L = S->L;
   TString *ts;
+#if LUAC_COMPATIBLE_FORMAT
+  uint32_t size = loadSize(S);
+#else
   size_t size = loadSize(S);
+#endif
   if (size == 0)  /* no string? */
     return NULL;
   else if (--size <= LUAI_MAXSHORTLEN) {  /* short string? */
