@@ -23,9 +23,6 @@ if ( IOS )
         set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode")
 endif ()
 
-if(MSVC)
-    add_compile_options(/Ze)
-endif()
 
 set(CMAKE_CXX_STANDARD 14)
 
