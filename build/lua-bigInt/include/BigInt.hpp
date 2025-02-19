@@ -9,7 +9,6 @@
 #define BIG_INT_HPP
 
 #include <iostream>
-#include <cstdint>
 
 #define BIG_INT "bigint"
 
