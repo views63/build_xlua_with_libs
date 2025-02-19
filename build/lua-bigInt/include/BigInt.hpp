@@ -13,6 +13,10 @@
 
 #define BIG_INT "bigint"
 
+#if defined(WIN32) || defined(__WIN32__) || defined(_WIN32) || defined(_MSC_VER)
+    #include <iso646.h>
+#endif
+
 typedef struct BigInt {
     std::string value;
     char sign;

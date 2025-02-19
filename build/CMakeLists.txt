@@ -24,8 +24,10 @@ if ( IOS )
 endif ()
 
 if(MSVC)
-    add_compile_options(/Za)
+    add_compile_options(/Ze)
 endif()
+
+set(CMAKE_CXX_STANDARD 14)
 
 option ( UINT_ESPECIALLY "using custom ulong" OFF )
 option ( USING_LUAJIT "using luajit" OFF )

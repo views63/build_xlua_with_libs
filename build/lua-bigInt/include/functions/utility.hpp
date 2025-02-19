@@ -8,7 +8,9 @@
 #define BIG_INT_UTILITY_FUNCTIONS_HPP
 
 #include <tuple>
-
+#if defined(WIN32) || defined(__WIN32__) || defined(_WIN32) || defined(_MSC_VER)
+    #include <iso646.h>
+#endif
 
 /*
     is_valid_number
