@@ -110,7 +110,7 @@ typedef struct BigInt {
         int to_int() const;
         long to_long() const;
         long long to_long_long() const;
-        void from_u64(uint64_t);
+        void from_u64(unsigned long long);
         unsigned long long to_u64() const;
 
         // Random number generating functions:
