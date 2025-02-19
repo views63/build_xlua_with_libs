@@ -49,7 +49,6 @@ set(LUAJIT_SRC_PATH luajit-2.1.0b3/src)
 
 #beign bigint
 set (BIGINT_SRC 
-    lua-bigInt/include/third_party/catch.hpp 
     lua-bigInt/include/operators/unary_arithmetic.hpp 
     lua-bigInt/include/operators/relational.hpp 
     lua-bigInt/include/operators/io_stream.hpp 
