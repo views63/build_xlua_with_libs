@@ -44,6 +44,34 @@ endif()
 set(LUA_SRC_PATH lua-${LUA_VERSION}/src)
 set(LUAJIT_SRC_PATH luajit-2.1.0b3/src)
 
+#beign bigint
+set (BIGINT_SRC 
+    lua-bigInt/include/third_party/catch.hpp 
+    lua-bigInt/include/operators/unary_arithmetic.hpp 
+    lua-bigInt/include/operators/relational.hpp 
+    lua-bigInt/include/operators/io_stream.hpp 
+    lua-bigInt/include/operators/increment_decrement.hpp 
+    lua-bigInt/include/operators/binary_arithmetic.hpp 
+    lua-bigInt/include/operators/assignment.hpp 
+    lua-bigInt/include/operators/arithmetic_assignment.hpp 
+    lua-bigInt/include/functions/utility.hpp 
+    lua-bigInt/include/functions/math.hpp 
+    lua-bigInt/include/functions/random.hpp 
+    lua-bigInt/include/functions/conversion.hpp 
+    lua-bigInt/include/constructors/constructors.hpp
+    lua-bigInt/include/BigInt.hpp
+    lua-bigInt/bigintWrap.cpp
+    )
+set_property(
+	SOURCE ${BIGINT_SRC}
+	APPEND
+	PROPERTY COMPILE_DEFINITIONS
+	LUA_LIB
+)
+list(APPEND THIRDPART_INC  lua-bigInt)
+set (THIRDPART_SRC ${THIRDPART_SRC} ${BIGINT_SRC})
+#end bigint
+
 #begin lua-rapidjson
 set (RAPIDJSON_SRC lua-rapidjson/source/rapidjson.cpp)
 set_property(
