@@ -58,7 +58,7 @@ long long BigInt::to_long_long() const {
     return std::stoll(this->to_string());
 }
 
-void BigInt::from_u64(uint64_t n) {
+void BigInt::from_u64(unsigned long long n) {
     this->sign='+';
     this->value=std::to_string(n);
 }
