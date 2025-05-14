@@ -246,6 +246,7 @@ set( ANDROID_DEFAULT_NDK_API_LEVEL_x86_64 21 )
 set( ANDROID_DEFAULT_NDK_API_LEVEL_mips 9 )
 set( ANDROID_DEFAULT_NDK_API_LEVEL_mips64 21 )
 
+target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
 
 macro( __LIST_FILTER listvar regex )
   if( ${listvar} )
