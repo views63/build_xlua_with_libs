@@ -21,13 +21,13 @@ jobs:
       - name: Build
         run: |
           cd build
-          ./make_android_lua53.sh
+          ./make_android_lua54.sh
           sudo apt install gcc-multilib
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          path: ./build/plugin_lua53/**/*
-          name: plugin_lua53
+          path: ./build/plugin_lua54/**/*
+          name: plugin_lua54
           overwrite: true
   linux:
     runs-on: ubuntu-latest
@@ -36,11 +36,11 @@ jobs:
       - name: Build
         run: |
           cd build
-          ./make_linux_lua53.sh
+          ./make_linux_lua54.sh
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          path: ./build/plugin_lua53/**/*
+          path: ./build/plugin_lua54/**/*
           name: plugin_lua54
           overwrite: true
   ios:
@@ -51,13 +51,13 @@ jobs:
       - name: Build
         run: |
           cd build
-          ./make_ios_lua53.sh
-          ./make_osx_lua53.sh
-          ./make_osx_silicon_lua53.sh
+          ./make_ios_lua54.sh
+          ./make_osx_lua54.sh
+          ./make_osx_silicon_lua54.sh
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          path: ./build/plugin_lua53/**/*
+          path: ./build/plugin_lua54/**/*
           name: plugin_lua54
           overwrite: true
 
@@ -73,11 +73,11 @@ jobs:
       - name: Build
         run: |
           cd build
-          .\make_win_lua53.bat
+          .\make_win_lua54.bat
       - uses: ilammy/msvc-dev-cmd@v1
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          path: ./build/plugin_lua53/**/*
+          path: ./build/plugin_lua54/**/*
           name: plugin_lua54
           overwrite: true
